@@ -6,18 +6,41 @@ export default function Dashboard() {
 	const navigate = useNavigate();
 
 	return (
-		<div className="dashboard-container">
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+				justifyContent: "center",
+				minHeight: "100vh",
+				textAlign: "center",
+				padding: "2rem",
+			}}>
 			<h1>Dashboard</h1>
 			<p>Welcome, {user?.firstName}!</p>
 			<p>Email: {user?.emailAddresses[0]?.emailAddress}</p>
 
-			<div className="user-section">
-				<UserButton
-					showName={true}
-					afterSignOutUrl="/"
-					afterSwitchSessionUrl="/dashboard"
-				/>
-				<button onClick={() => navigate("/")}>Go to Home</button>
+			<div
+				style={{
+					margin: "2rem 0",
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					gap: "1rem",
+				}}>
+				<UserButton afterSwitchSessionUrl="/dashboard" />
+				<button
+					onClick={() => navigate("/")}
+					style={{
+						padding: "0.75rem 1.5rem",
+						backgroundColor: "#4285f4",
+						color: "white",
+						border: "none",
+						borderRadius: "8px",
+						cursor: "pointer",
+					}}>
+					Go to Home
+				</button>
 			</div>
 		</div>
 	);
